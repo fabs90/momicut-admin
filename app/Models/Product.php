@@ -22,6 +22,10 @@ class Product extends Model
         'slug'
     ];
 
+    protected $attributes = [
+        'stok' => 0,
+    ];
+
     protected static function booted()
     {
         static::saving(function ($model) {

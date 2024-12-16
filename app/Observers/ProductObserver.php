@@ -8,6 +8,19 @@ use App\Models\Product;
 class ProductObserver
 {
     /**
+     * Handle the Product "Creating" event.
+     *
+     * @param  \App\Models\Product  $product
+     * @return void
+     */
+    public function creating(Product $product)
+    {
+        if (is_null($product->stok)) {
+            $product->stok = 0;
+        }
+    }
+
+    /**
      * Handle the Product "updating" event.
      *
      * @param  \App\Models\Product  $product
@@ -34,7 +47,6 @@ class ProductObserver
      */
     public function created(Product $product): void
     {
-        //
     }
 
     /**
