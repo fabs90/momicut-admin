@@ -60,7 +60,8 @@ class PromoResource extends Resource
                     })
                     ->searchable(),
 
-                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\ImageColumn::make('image')
+                    ->label("Gambar"),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

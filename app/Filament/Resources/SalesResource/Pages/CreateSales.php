@@ -9,4 +9,6 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateSales extends CreateRecord
 {
     protected static string $resource = SalesResource::class;
+
+    protected static ?string $title = "Buat Data Penjualan";
 }

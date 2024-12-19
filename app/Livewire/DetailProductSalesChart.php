@@ -35,6 +35,6 @@ class DetailProductSalesChart extends ChartWidget
 
     protected function getType(): string
     {
-        return 'line'; // Jenis chart
+        return 'line';
     }
 }

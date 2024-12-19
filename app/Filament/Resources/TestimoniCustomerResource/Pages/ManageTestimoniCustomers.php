@@ -13,7 +13,11 @@ class ManageTestimoniCustomers extends ManageRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+                ->label('Tambah Testimoni Baru') // This changes the button label
+                ->modalHeading()->label("Tambah Gambar Testimoni") // This changes the modal heading
         ];
     }
+
+
 }

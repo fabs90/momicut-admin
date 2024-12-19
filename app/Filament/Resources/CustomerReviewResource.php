@@ -17,8 +17,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class CustomerReviewResource extends Resource
 {
     protected static ?string $model = CustomerReview::class;
-    protected static ?string $navigationGroup = 'Customer';
-    public static ?string $pluralLabel = 'Review Pelanggan';
+    protected static ?string $navigationGroup = 'Pelanggan';
+    public static ?string $pluralLabel = 'Ulasan Pelanggan';
 
     protected static ?string $navigationIcon = 'heroicon-o-user';
 
@@ -35,6 +35,7 @@ class CustomerReviewResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make("username")
+                    ->label("Nama Pelanggan")
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make("rating")
@@ -47,11 +48,11 @@ class CustomerReviewResource extends Resource
                     })
                     ->color(function (CustomerReview $record) {
                         return match ($record->rating) {
-                            5 => 'text-yellow-500', // Warna untuk rating 5
-                            4 => 'text-yellow-400', // Warna untuk rating 4
-                            3 => 'text-yellow-300', // Warna untuk rating 3
-                            2 => 'text-yellow-200', // Warna untuk rating 2
-                            1 => 'text-yellow-100', // Warna untuk rating 1
+                            5 => 'text-yellow-500',
+                            4 => 'text-yellow-400',
+                            3 => 'text-yellow-300',
+                            2 => 'text-yellow-200',
+                            1 => 'text-yellow-100',
                             default => 'text-gray-400',
                         };
                     })
@@ -59,6 +60,7 @@ class CustomerReviewResource extends Resource
                     ->searchable()
                 ,
                 Tables\Columns\TextColumn::make("comments")
+                    ->label("Komentar")
                     ->sortable()
                     ->searchable(),
             ])

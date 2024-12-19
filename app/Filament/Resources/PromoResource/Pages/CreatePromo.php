@@ -8,5 +8,7 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreatePromo extends CreateRecord
 {
+
     protected static string $resource = PromoResource::class;
+    protected static ?string $title = "Buat Promo";
 }

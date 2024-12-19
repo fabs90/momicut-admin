@@ -45,25 +45,32 @@ CONTOH BOX PRODUK
                                 <div class="card shadow-lg h-100 text-center p-3"
                                     style="border-radius: 20px; box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);">
                                     <div class="d-flex justify-content-center align-items-center">
-                                        {{-- @if ($product->primaryImage)
-                                            <img src="{{ asset('storage/' . $product->primaryImage->image) }}"
-                                                alt="{{ $product->nama }}" class="img-fluid mb-3"
-                                                style="max-width: 60%; height: auto; border-radius: 10px;">
-                                        @else
-                                            <p>No primary image available</p>
-                                        @endif --}}
                                         <!-- Carousel Start -->
                                         <div id="carouselExample{{ $product->id }}" class="carousel slide"
                                             data-bs-ride="carousel" data-bs-interval="3000">
                                             <div class="carousel-inner">
-                                                @foreach ($product->images as $key => $image)
-                                                    <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                                        <img src="{{ asset('storage/' . $image->image) }}"
+                                                @if ($product->primaryImage)
+                                                    <div class="carousel-item active">
+                                                        <img src="{{ asset('storage/' . $product->primaryImage->image) }}"
                                                             alt="{{ $product->nama }}" class="d-block w-100 img-fluid mb-3"
                                                             style="border-radius: 10px; max-height: 300px; object-fit: cover;">
                                                     </div>
+                                                @endif
+
+                                                @foreach ($product->images as $key => $image)
+                                                    {{-- Abaikan PrimaryImage agar tidak duplikat --}}
+                                                    @if (!$product->primaryImage || $product->primaryImage->id !== $image->id)
+                                                        <div
+                                                            class="carousel-item {{ !$product->primaryImage && $key == 0 ? 'active' : '' }}">
+                                                            <img src="{{ asset('storage/' . $image->image) }}"
+                                                                alt="{{ $product->nama }}"
+                                                                class="d-block w-100 img-fluid mb-3"
+                                                                style="border-radius: 10px; max-height: 300px; object-fit: cover;">
+                                                        </div>
+                                                    @endif
                                                 @endforeach
                                             </div>
+
                                             <button class="carousel-control-prev" type="button"
                                                 data-bs-target="#carouselExample{{ $product->id }}" data-bs-slide="prev">
                                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -75,6 +82,7 @@ CONTOH BOX PRODUK
                                                 <span class="visually-hidden">Next</span>
                                             </button>
                                         </div>
+
 
                                         <!-- Carousel End -->
                                     </div>

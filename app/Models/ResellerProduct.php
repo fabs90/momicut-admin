@@ -10,7 +10,8 @@ class ResellerProduct extends Model
     use HasFactory;
 
     protected $table = "reseller_products";
-    protected $fillable = ["reseller_profile_id ", "product_id ", "price", "stock"];
+    protected $fillable = ["reseller_profile_id", "product_id", "price", "stock"];
+
 
 
     public function resellerProfile()

@@ -36,8 +36,10 @@ class ImageProductResource extends Resource
                     ->required(),
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->getUploadedFileNameForStorageUsing(fn($file) => $file->hashName()) // Simpan hanya nama file
-                    ->required(),
+                    ->getUploadedFileNameForStorageUsing(fn($file) => $file->hashName())
+                    ->label("Gambar Produk")
+                    ->required()
+                ,
             ]);
     }
 
@@ -52,7 +54,8 @@ class ImageProductResource extends Resource
                 Tables\Columns\IconColumn::make('is_primary')
                     ->label("Gambar Utama")
                     ->boolean(),
-                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\ImageColumn::make('image')
+                    ->label("Gambar Produk"),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

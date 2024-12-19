@@ -69,6 +69,7 @@ class ProductResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('Category.kategori')
                     ->sortable()
+                    ->label("Kategori")
                     ->searchable(),
                 Tables\Columns\TextColumn::make('nama')
                     ->searchable()

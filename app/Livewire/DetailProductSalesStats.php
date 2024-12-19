@@ -7,7 +7,7 @@ use App\Models\Sales;
 
 class DetailProductSalesStats extends BaseWidget
 {
-    public $product; // Produk yang akan digunakan dalam query
+    public $product;
 
 
     // Gunakan mount untuk menginisialisasi data produk, startDate, dan endDate
@@ -23,25 +23,24 @@ class DetailProductSalesStats extends BaseWidget
 
     protected function calculateStats(): array
     {
-        // Query Sales untuk produk yang dipilih
         $salesQuery = Sales::where('product_id', $this->product->id);
 
-        // Hitung data statistik
+        // Calculate statistics
         $totalRevenue = $salesQuery->sum('pendapatan');
         $totalUnitsSold = $salesQuery->sum('stok_terjual');
         $averageRevenue = $salesQuery->avg('pendapatan');
 
-        // Kembalikan statistik dalam bentuk array
         return [
-            Stat::make('Total Revenue', number_format($totalRevenue, 0, ',', '.') . ' IDR')
-                ->description('Total pendapatan dari produk'),
-
-            Stat::make('Total Units Sold', number_format($totalUnitsSold, 0, ',', '.'))
-                ->description('Total unit terjual'),
-
-            Stat::make('Average Revenue', number_format($averageRevenue, 0, ',', '.') . ' IDR')
-                ->description('Pendapatan rata-rata per penjualan'),
+            $this->createStat('Total Revenue', $totalRevenue, 'Total pendapatan dari produk', 'IDR'),
+            $this->createStat('Total Units Sold', $totalUnitsSold, 'Total unit terjual'),
+            $this->createStat('Average Revenue', $averageRevenue, 'Rata-rata pendapatan', 'IDR')
         ];
+    }
+
+    private function createStat(string $label, float $value, string $description, string $suffix = ''): Stat
+    {
+        return Stat::make($label, number_format($value, 0, ',', '.') . ' ' . $suffix)
+            ->description($description);
     }
 
 

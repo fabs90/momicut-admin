@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class TestimoniCustomerResource extends Resource
 {
     protected static ?string $model = TestimoniCustomer::class;
-    protected static ?string $navigationGroup = 'Customer';
+    protected static ?string $navigationGroup = 'Pelanggan';
     public static ?string $pluralLabel = 'Testimoni Pelanggan';
 
     protected static ?string $navigationIcon = 'heroicon-o-star';
@@ -27,7 +27,7 @@ class TestimoniCustomerResource extends Resource
             ->schema([
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->getUploadedFileNameForStorageUsing(fn($file) => $file->hashName()) // Simpan hanya nama file
+                    ->getUploadedFileNameForStorageUsing(fn($file) => $file->hashName())
                     ->required(),
             ]);
     }

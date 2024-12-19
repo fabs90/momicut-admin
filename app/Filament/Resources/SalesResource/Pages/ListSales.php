@@ -14,7 +14,7 @@ class ListSales extends ListRecords
     {
         return [
             Actions\CreateAction::make()
-                ->label("Buat Data Sales"),
+                ->label("Buat Data Penjualan"),
             Actions\CreateAction::make('Laporan')
                 ->label("Lihat Laporan")
                 ->url(fn() => route('filament.admin.resources.sales.laporan'))

@@ -46,6 +46,7 @@ class SalesResource extends Resource
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('product.nama')
+                    ->label("Produk")
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('stok_terjual')
@@ -55,7 +56,7 @@ class SalesResource extends Resource
                     ->money("IDR")
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->label("Tanggal Dibuat")
+                    ->label("Tanggal Terjual")
                     ->toggleable(isToggledHiddenByDefault: false)
                     ->searchable()
                     ->sortable(),

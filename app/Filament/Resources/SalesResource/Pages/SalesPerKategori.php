@@ -14,7 +14,7 @@ class SalesPerKategori extends Page
     protected static string $resource = SalesResource::class;
     protected static string $view = 'filament.resources.sales-resource.pages.sales-per-kategori';
 
-    public $category; // Define public property to hold the data
+    public $category;
 
     // Load data in the mount method
     public function mount()
