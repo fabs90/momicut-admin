@@ -1,8 +1,8 @@
 <body>
     <div class="container py-5">
-        <h1 class="text-center">PROMOSI MINGGU INI !!!!!</h1>
+        <h1 class="text-center">Menu Lain</h1>
         <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
-            @yield('promosi-content')
+            @yield('menu-content')
 
         </div>
         <div class="row mt-3">

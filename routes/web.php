@@ -28,7 +28,7 @@ Route::get('/', function () {
     $testimonials = CustomerReview::all();
     $testimoniCustomer = TestimoniCustomer::all();
     $categories = Category::all();
-    $products = Product::all();
+    $products = Product::all()->groupBy('category_id');
 
     return view('landing.homeContent', compact(
         'testimonials',
