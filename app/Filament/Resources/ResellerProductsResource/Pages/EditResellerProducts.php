@@ -9,11 +9,12 @@ use Filament\Resources\Pages\EditRecord;
 class EditResellerProducts extends EditRecord
 {
     protected static string $resource = ResellerProductsResource::class;
+    protected static ?string $title = "Ubah Produk Reseller";
 
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
+            Actions\DeleteAction::make()->label("Hapus"),
         ];
     }
 }

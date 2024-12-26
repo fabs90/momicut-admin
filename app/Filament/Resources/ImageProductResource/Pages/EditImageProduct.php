@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Log;
 class EditImageProduct extends EditRecord
 {
     protected static string $resource = ImageProductResource::class;
-
+    protected static ?string $title = "Ubah Gambar Produk";
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
+            Actions\DeleteAction::make()->label("Hapus"),
         ];
     }
 

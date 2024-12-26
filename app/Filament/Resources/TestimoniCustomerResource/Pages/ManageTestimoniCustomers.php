@@ -15,7 +15,8 @@ class ManageTestimoniCustomers extends ManageRecords
         return [
             Actions\CreateAction::make()
                 ->label('Tambah Testimoni Baru') // This changes the button label
-                ->modalHeading()->label("Tambah Gambar Testimoni") // This changes the modal heading
+                ->modalHeading()->label("Tambah Gambar Testimoni"), // This changes the modal heading
+
         ];
     }
 

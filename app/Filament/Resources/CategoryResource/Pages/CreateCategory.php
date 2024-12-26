@@ -12,4 +12,10 @@ class CreateCategory extends CreateRecord
 
     protected static ?string $title = "Buat Kategori";
 
+    protected function getCreateFormAction(): Actions\Action
+    {
+        return parent::getCreateAction()
+            ->label('Simpan')
+            ->createAnotherLabel('Simpan & buat lainnya');
+    }
 }

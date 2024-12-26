@@ -68,7 +68,7 @@ class CustomerReviewResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\DeleteAction::make()->label("Hapus"),
                 // Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([

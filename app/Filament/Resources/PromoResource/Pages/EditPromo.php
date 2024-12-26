@@ -9,11 +9,12 @@ use Filament\Resources\Pages\EditRecord;
 class EditPromo extends EditRecord
 {
     protected static string $resource = PromoResource::class;
+    protected static ?string $title = "Ubah Promo";
 
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
+            Actions\DeleteAction::make()->label("Hapus"),
         ];
     }
 }

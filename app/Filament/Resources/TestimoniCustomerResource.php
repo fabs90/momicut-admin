@@ -42,13 +42,9 @@ class TestimoniCustomerResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\DeleteAction::make(),
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make()->label("Delete"),
-                ])->label("Delete"),
+                Tables\Actions\DeleteAction::make()->label("Hapus"),
+                Tables\Actions\EditAction::make()->label("Ubah")
+                    ->modalHeading()->label("Ubah"),
             ]);
     }
 
